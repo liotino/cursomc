@@ -2,16 +2,31 @@ package com.nelioalves.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
  /* interface serialize deixas os objetos
   * podem ser convertidos para uma sequencia
   * de bytes para que os objetos podem ser gravados
   * em arquivos trafegados por uma rede,
   */
 
+
+
+@Entity
 public class Categoria implements Serializable {
  
  private static final long serialVersionUID = 1L;
+  
+ /*DEPENDENDO DO BANCO QUE VOCE FOR ESCOLHER TALVEZ MUDAR "INDENTITY"  */
+ 
+ @Id
+ @GeneratedValue(strategy=GenerationType.IDENTITY)
  private Integer id;
+ 
+  
  private String nome;
  
  public Categoria() {
