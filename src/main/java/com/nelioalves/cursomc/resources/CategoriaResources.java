@@ -23,9 +23,9 @@ public class CategoriaResources {
 	 * 
 	 * ResponseEntity<?> ele pode ou nao pode encontrar o objeto essa e uma
 	 * boa classe porque ela retorna o status
-	 * exemple http -> 200 ok e ainda o objeto! mellhor HttServletResponse que so retorna o status do http!
+	 * exemple http -> 200 ok e ainda o objeto com Body!! mellhor HttServletResponse que so retorna o status do http!
 	 * 
-	 * SEMPRE EM RESOURCES OS METODOS SAO CURTOS!
+	 * SEMPRE EM RESOURCES OS METODOS SAO CURTOS! ou seja nas apis metodos curtos
 	 * 
 	 */
 	
