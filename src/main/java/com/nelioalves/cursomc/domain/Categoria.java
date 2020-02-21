@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
  /* interface serialize deixas os objetos
   * podem ser convertidos para uma sequencia
   * de bytes para que os objetos podem ser gravados
@@ -36,6 +38,8 @@ public class Categoria implements Serializable {
   * NA PARTE DE PRODUTO A LISTA CHAMA "CATEGORIAS"
   * PARA NAO PRECISAR FAZER O MAPEAMENTO DE NOVO! 
   */
+ 
+ @JsonManagedReference
  @ManyToMany(mappedBy="categorias")
  private List<Produto> produtos = new ArrayList<Produto>();		 
   
