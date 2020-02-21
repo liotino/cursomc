@@ -1,11 +1,14 @@
 package com.nelioalves.cursomc.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
  /* interface serialize deixas os objetos
   * podem ser convertidos para uma sequencia
@@ -24,10 +27,18 @@ public class Categoria implements Serializable {
  
  @Id
  @GeneratedValue(strategy=GenerationType.IDENTITY)
- private Integer id;
- 
+ private Integer id; 
   
  private String nome;
+ 
+ 
+ /* ABAIXO ELE REFERENCIA O OUTRO MAPEAMENTO
+  * NA PARTE DE PRODUTO A LISTA CHAMA "CATEGORIAS"
+  * PARA NAO PRECISAR FAZER O MAPEAMENTO DE NOVO! 
+  */
+ @ManyToMany(mappedBy="categorias")
+ private List<Produto> produtos = new ArrayList<Produto>();		 
+  
  
  public Categoria() {
 	 
@@ -43,26 +54,36 @@ public class Categoria implements Serializable {
  }
 
 
-
-public Integer getId() {
+ public Integer getId() {
 	
 	 return id;
  }
 
- public void setId(Integer id) {
+  public void setId(Integer id) {
 
 	 this.id = id;
- }
+  }
 
- public String getNome() {
+  public String getNome() {
 
 	 return nome;
- }
+  }
 
- public void setNome(String nome) {
+  public void setNome(String nome) {
 
 	 this.nome = nome;
- }
+  }
+ 
+  public List<Produto> getProdutos() {
+	return produtos;
+  }
+
+
+ 
+  public void setProdutos(List<Produto> produtos) {
+
+	  this.produtos = produtos;
+  }
 
  
 
