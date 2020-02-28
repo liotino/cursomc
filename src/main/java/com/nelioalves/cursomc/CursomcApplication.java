@@ -1,6 +1,5 @@
 package com.nelioalves.cursomc;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
