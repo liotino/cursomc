@@ -50,11 +50,18 @@ public class Cliente implements Serializable {
    * 
    * ACREDITO QUE ELE VAI CRIAR UMA TABELA SOZINHA COMPATIVEL COM ESSE
    * TIPO DE DADOS (Set<String>)
+   * 
+   * COLECOES NAO COLOCA NO CONTRUTOR!
+   * 
    */
   
   @ElementCollection
   @CollectionTable(name="TELEFONE")
   private Set<String> telefones = new HashSet<>();
+    
+  
+  @OneToMany(mappedBy="cliente")
+  private List<Pedido> pedidos = new ArrayList<Pedido>();
     
   
   public Cliente() {
@@ -145,6 +152,16 @@ public class Cliente implements Serializable {
 	
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
+	}
+	
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 	
